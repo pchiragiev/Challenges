@@ -1,5 +1,5 @@
 /* Created By: Pavel Chiragiev */
 
-function addItem (item, arr) {
+function addItemToList (arr, item) {
     arr.push(item);
 }

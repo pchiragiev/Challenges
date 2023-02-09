@@ -1,6 +1,6 @@
 /* Created By: Pavel Chiragiev */
 
-ul.hobbies {
+ul#hobbies {
     display: flex;
     justify-content: space-around;
 }
