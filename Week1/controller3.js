@@ -23,7 +23,7 @@ const poke_data = async () => {
     console.log(mainData);
 
     document.getElementById("header").innerHTML = pokemon;
-    document.getElementById("hp").innerHTML = `hp = ${mainData};
+    document.getElementById("hp").innerHTML = `hp = ${mainData}`;
 }
 
 document.getElementById("display").addEventListener("click", poke_data);
