@@ -15,13 +15,15 @@ document.getElementById("apiAlert").addEventListener("click", apiAlert);
 
 // Part 2
 const poke_data = async () => {
-    let url = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=2000`;
+    let pokemon = document.getElementById("inputPokemon").value;
+    pokemon = pokemon.toLowerCase();
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
     let response = await axios.get(url);
-    let mainData = response.data;
+    let mainData = response.data.stats[0]["base_stat"];
     console.log(mainData);
 
-    document.getElementById("header").innerHTML = mainData;
-    document.getElementById("hp").innerHTML = mainData;
+    document.getElementById("header").innerHTML = pokemon;
+    document.getElementById("hp").innerHTML = `hp = ${mainData};
 }
 
-document.getElementById("add").addEventListener("click", poke_data);
+document.getElementById("display").addEventListener("click", poke_data);
