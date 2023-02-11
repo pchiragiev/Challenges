@@ -22,8 +22,8 @@ const poke_data = async () => {
     let mainData = response.data.stats[0]["base_stat"];
     console.log(mainData);
 
-    document.getElementById("header").innerHTML = pokemon;
-    document.getElementById("hp").innerHTML = `hp = ${mainData}`;
+    document.getElementById("header").innerHTML = pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
+    document.getElementById("hp").innerHTML = `${mainData} hp`;
 }
 
 document.getElementById("display").addEventListener("click", poke_data);
