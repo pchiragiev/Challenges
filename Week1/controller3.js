@@ -1,31 +1,27 @@
 /* Created By: Pavel Chiragiev */
 
-function apiAlert () {
-    fetch('https://pokeapi.co/api/v2/pokemon/')
-        .then(response => response.text())
-        .then(data => alert(data));
+
+// Part 1
+const request = new Request('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=2000');
+
+async function apiAlert () {
+    let response = await fetch(request);
+    let data = await response.text();
+    alert(data);
 }
 
 document.getElementById("apiAlert").addEventListener("click", apiAlert);
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// function addItem () {
-//     let item = document.getElementById("inputHobby").value;
-//     let addedItem = document.createElement("li");
-//     addedItem.innerHTML = item;
-//     document.getElementById('hobbies').appendChild(addedItem);
-// }
+// Part 2
+const poke_data = async () => {
+    let url = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=2000`;
+    let response = await axios.get(url);
+    let mainData = response.data;
+    console.log(mainData);
 
-// function printList () {
-//     let list = document.getElementById("hobbies").getElementsByTagName('li');
-//     let message = "";
-//     for (let i = 0; i < list.length; ++i) {
-//         message += ` ${list[i].innerHTML}`;
-//     }
-//     console.log(message);
-//     alert(message);
-// }
+    document.getElementById("header").innerHTML = mainData;
+    document.getElementById("hp").innerHTML = mainData;
+}
 
-// document.getElementById("add").addEventListener("click", addItem);
-// document.getElementById("display").addEventListener("click", printList);
+document.getElementById("add").addEventListener("click", poke_data);
